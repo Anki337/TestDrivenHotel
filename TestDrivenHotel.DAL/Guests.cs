@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace TestDrivenHotel.DAL
 {
-    public class HotelRoom
+    public class Guests
     {
-        // Properties för HotelRoom
-        
+        // Properties för Guests
 
+        // Lista med alla gäster
+        // Lista med alla bokade gäster
     }
 }

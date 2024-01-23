@@ -3,14 +3,9 @@
     public class BookingManager
     {
         //Här sköts allt som har med databasen att göra!
-        // Använd EF core för att skapa databasen och kopplingarna till functionerna.
-        //En statisk lista som skall fungera som en databas som inntehåller alla tillgängliga rum, Dessa skall kunna bokas och avbokas.
-        //En lista som skall fungera som en databas som innehåller alla gäster, fylls på när man bokar ett rum med sitt namn, både gäst och rum läggs till i en dictionary.
-        //Dictionary som både gäst namn och rum namn länkas som ett key:value pair så man kan skriva ut listan och se vilka gäster som är bokade i vilka rum
-        //Vid avbokning så tas gästen bort från listan och rummet blir tillgängligt igen.
-
-        //Statisk lista för alla tillgängliga rum
-        //Statisk lista för alla gäster
-        //Statisk dictionary för att länka gäst och rum
+        
+        // Funktion för att boka rum och lägga till rum och gäst i en dictionary, denna skall även ta bort rummet från listan med tillgängliga rum och lägga till det i listan med bokade rum.
+        // Funktion för att avboka rum och ta bort rum och gäst från dictionary, denna skall även ta bort rummet från listan med bokade rum och lägga till det i listan med tillgängliga rum.
+        // Funktion för att visa alla bokade rum och gäster via att loopa igenom dictionary som innehåller alla bokade rum och gäster.
     }
 }

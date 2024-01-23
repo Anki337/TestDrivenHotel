@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TestDrivenHotel.Tests
 {
-    internal class HotemRoomsDBTests
+    public class HotelRoomTests
     {
+         // Test för att se att HotelRoom classen har rätt properties
     }
 }

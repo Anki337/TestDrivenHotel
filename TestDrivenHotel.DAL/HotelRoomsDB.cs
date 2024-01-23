@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace TestDrivenHotel.DAL
 {
-    internal class HotelRoomsDB
+    public class HotelRoomsDB
     {
+        // Lista med alla tillgängliga rum
+        // Lista med alla bokade rum
+
     }
 }
