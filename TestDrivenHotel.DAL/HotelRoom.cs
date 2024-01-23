@@ -9,7 +9,11 @@ namespace TestDrivenHotel.DAL
     public class HotelRoom
     {
         // Properties för HotelRoom
+        public int RoomNumber { get; set; }
+        public int NumberOfBeds { get; set; }
+        public int PricePerNight { get; set; }
+        public bool IsAvailable { get; set; }
         
-
+        
     }
 }
