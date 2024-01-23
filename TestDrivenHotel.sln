@@ -3,12 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDrivenHotel.UI", "TestDrivenHotel.UI\TestDrivenHotel.UI.csproj", "{6CD20207-AD6F-41AC-84AA-B47534F53892}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDrivenHotel.UI", "TestDrivenHotel.UI\TestDrivenHotel.UI.csproj", "{6CD20207-AD6F-41AC-84AA-B47534F53892}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B85A5D8C-3021-4046-8678-235F2156F78F} = {B85A5D8C-3021-4046-8678-235F2156F78F}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDrivenHotel.BLL", "TestDrivenHotel.BLL\TestDrivenHotel.BLL.csproj", "{B85A5D8C-3021-4046-8678-235F2156F78F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDrivenHotel.BLL", "TestDrivenHotel.BLL\TestDrivenHotel.BLL.csproj", "{B85A5D8C-3021-4046-8678-235F2156F78F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F497D190-EC87-4D97-94F8-4332D05F4B3C} = {F497D190-EC87-4D97-94F8-4332D05F4B3C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDrivenHotel.DAL", "TestDrivenHotel.DAL\TestDrivenHotel.DAL.csproj", "{F497D190-EC87-4D97-94F8-4332D05F4B3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDrivenHotel.Tests", "TestDrivenHotel.Tests\TestDrivenHotel.Tests.csproj", "{6D8948A3-9F25-4ED7-9E99-6DE82F20DCF0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6CD20207-AD6F-41AC-84AA-B47534F53892} = {6CD20207-AD6F-41AC-84AA-B47534F53892}
+		{B85A5D8C-3021-4046-8678-235F2156F78F} = {B85A5D8C-3021-4046-8678-235F2156F78F}
+		{F497D190-EC87-4D97-94F8-4332D05F4B3C} = {F497D190-EC87-4D97-94F8-4332D05F4B3C}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +36,14 @@ Global
 		{B85A5D8C-3021-4046-8678-235F2156F78F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B85A5D8C-3021-4046-8678-235F2156F78F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B85A5D8C-3021-4046-8678-235F2156F78F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F497D190-EC87-4D97-94F8-4332D05F4B3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F497D190-EC87-4D97-94F8-4332D05F4B3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F497D190-EC87-4D97-94F8-4332D05F4B3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F497D190-EC87-4D97-94F8-4332D05F4B3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D8948A3-9F25-4ED7-9E99-6DE82F20DCF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D8948A3-9F25-4ED7-9E99-6DE82F20DCF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D8948A3-9F25-4ED7-9E99-6DE82F20DCF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D8948A3-9F25-4ED7-9E99-6DE82F20DCF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
