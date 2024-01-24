@@ -8,6 +8,12 @@ namespace TestDrivenHotel.Tests
 {
     public class HotelRoomTests
     {
-         // Test för att se att HotelRoom classen har rätt properties
+        // Test för att se att HotelRoom classen har rätt properties.
+        [Fact]
+        public void Test1()
+        {
+            
+        }
+
     }
 }

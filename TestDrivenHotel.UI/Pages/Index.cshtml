@@ -1,10 +1,32 @@
 ﻿@page
-@model IndexModel
+@model TestDrivenHotel.UI.Pages.IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@if (Model.AllRooms.Count() > 0)
+{
+    <div class="grid-container">
+
+        @foreach (var room in Model.AllRooms)
+        {
+            <div class="grid-item">
+                <h2>@room.RoomNumber</h2>
+                <div>
+                    <label>Number of Beds:</label>
+                    <span>@room.NumberOfBeds</span>
+                </div>
+                @if (room.IsAvailable)
+                {
+                    <div>
+                        <span class="text-success">Can be booked!</span>
+                    </div>
+                    <div>
+                        <a class="btn btn-outline-dark" asp-page="/Pages/Details" asp-route-id="@room.RoomNumber">Details</a>
+                    </div>
+                }
+            </div>
+        }
+
+    </div>
+}

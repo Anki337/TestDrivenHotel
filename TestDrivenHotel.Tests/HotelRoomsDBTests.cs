@@ -8,9 +8,23 @@ namespace TestDrivenHotel.Tests
 {
     public class HotelRoomsDBTests
     {
-        //Test för att se att Listan med alla rum i HotelRoomsDB är tom, skall fallera andra gången man kör testet då rummen har lagts till i listan.
-        //Test för att se att rummen ifrån HotelRooms läggs till i listan med alla rum i HotelRoomsDB, kör count > 0 för att se att det finns rum i listan.
-        //Test för att se att listan med alla rum i HotelRoomsDB inte är tom, skall passera andra gången man kör testet då rummen har lagts till i listan.
+        // Test för att se att Listan public List<HotelRoom> HotelRooms { get; set; } INTE är tom.
+        [Fact]
+        public void Test1()
+        {
+            
+        }
+        // Test för att se att Listan public List<Guests> Guests { get; set; } INTE är tom.
+        [Fact] public void Test2()
+        {
 
+        }
+        // Test för att kolla så att public Dictionary<Guests, HotelRoom> BookedRooms { get; set; } INTE är tom. (Denna skall köras varje gång en person lägger trycker på knappen "boka" på UI lagret och bokar ett rum.)
+        [Fact]
+        public void Test3()
+        {
+            
+        }
+        
     }
 }
