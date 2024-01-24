@@ -1,8 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using System;
+using TestDrivenHotel.DAL;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+// Hämta ConnString från appsettings.json
+var connectionString = builder.Configuration.GetConnectionString("HotelRoomsDbConnection");
+// Lägg tll AppDbContext i DI-Containern.
+builder.Services.AddDbContext<HotelRoomsDB>(options => options.UseSqlServer(connectionString));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
