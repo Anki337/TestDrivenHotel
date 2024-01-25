@@ -5,22 +5,25 @@
 }
 
 
-@foreach(var room in Model.AllRooms)
+
+@foreach (var room in Model.AllRooms)
 {
     <div class="room">
         <h2>RoomNumber: @room.RoomNumber</h2>
         <p>Number of beds: @room.NumberOfBeds</p>
         <p>Price per night: @room.PricePerNight.ToString("C")</p>
-        @if(room.IsBooked)
+        @if (room.IsBooked)
         {
             <p>Room is Unavailable</p>
         }
         else
         {
             <p>Room is available</p>
+            <form method="post" id="bookRoomForm_@room.RoomNumber" asp-page-handler="Book" asp-route-roomId="@room.RoomNumber">
+                <button type="submit" onclick="return validateGuestId()">Book this Room!</button>
+            </form>
         }
-        <form method="post" asp-page-handler="Book" asp-route-roomId="@room.RoomNumber">
-            <button type="submit">Book this Room!</button>
-        </form>
     </div>
 }
+
+

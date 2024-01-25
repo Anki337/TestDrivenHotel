@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using System;
+using TestDrivenHotel.BLL;
 using TestDrivenHotel.DAL;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<HotelRoomsDB>();
+builder.Services.AddScoped<Guests>();
+builder.Services.AddScoped<BookingManager>();
 // Hämta ConnString från appsettings.json
 var connectionString = builder.Configuration.GetConnectionString("HotelRoomsDbConnection");
 // Lägg tll AppDbContext i DI-Containern.

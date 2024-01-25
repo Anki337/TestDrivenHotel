@@ -10,6 +10,7 @@ namespace TestDrivenHotel.DAL
 {
     public class HotelRoomsDB : DbContext
     {
+        private int _nextGuestId = 1;
         public HotelRoomsDB(DbContextOptions<HotelRoomsDB> options) :base(options)
         {
             
@@ -19,8 +20,13 @@ namespace TestDrivenHotel.DAL
         // Lista med alla tillgängliga rum
         public DbSet<HotelRoom> HotelRooms { get; set; }
         // Lista med alla bokade rum
-        public Dictionary<(int RoomNumber, int GuestId), HotelRoom> BookedRooms { get; set; } = new Dictionary<(int RoomNumber, int GuestId), HotelRoom>();
-
+        public Dictionary<(int RoomNumber, int GuestId), HotelRoom> BookedRooms { get; set; }
+        public List<Guests> Guests { get; set; }
+        // Function to get the next available guest ID
+        public int GetNextGuestId()
+        {
+            return _nextGuestId++;
+        }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
