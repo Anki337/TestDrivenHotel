@@ -10,20 +10,7 @@ namespace TestDrivenHotel.Tests
 {
     public class GuestsTests
     {
-        // Test för att se att Guests classen har rätt properties
-        [Fact]
-        public void GuestsCLass_ShouldHaveCorrectProperties()
-        {
-            // Given
-            var guest = new Guests();
-            // When
-            
-            // Then
-            
-        }
-
-
-
+        
 
 
     }

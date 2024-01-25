@@ -19,7 +19,7 @@ namespace TestDrivenHotel.DAL
         // Lista med alla tillgängliga rum
         public DbSet<HotelRoom> HotelRooms { get; set; }
         // Lista med alla bokade rum
-        public Dictionary<Guests, HotelRoom> BookedRooms { get; set; }
+        public Dictionary<(int RoomNumber, int GuestId), HotelRoom> BookedRooms { get; set; } = new Dictionary<(int RoomNumber, int GuestId), HotelRoom>();
 
 
 
@@ -107,22 +107,6 @@ namespace TestDrivenHotel.DAL
                 PricePerNight = 10000,
                 IsBooked = false
             });
-
-
-
-
-
         }
-
-
-
-
-
-
     }
-
-
-
-
-
 }

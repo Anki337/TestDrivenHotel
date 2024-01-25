@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace TestDrivenHotel.DAL
 {
+
     public class Guests
     {
-        // Properties för Guests
-        
+        [Key]  
         public  int  GuestId { get; set; }
         public  string? FirstName { get; set; }
         public  string? LastName { get; set; }

@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
+builder.Services.AddScoped<HotelRoomsDB>();
 // Hämta ConnString från appsettings.json
 var connectionString = builder.Configuration.GetConnectionString("HotelRoomsDbConnection");
 // Lägg tll AppDbContext i DI-Containern.
