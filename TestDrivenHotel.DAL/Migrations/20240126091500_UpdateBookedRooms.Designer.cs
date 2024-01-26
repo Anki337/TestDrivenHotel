@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestDrivenHotel.DAL;
 
@@ -10,9 +11,11 @@ using TestDrivenHotel.DAL;
 namespace TestDrivenHotel.DAL.Migrations
 {
     [DbContext(typeof(HotelRoomsDB))]
-    partial class HotelRoomsDBModelSnapshot : ModelSnapshot
+    [Migration("20240126091500_UpdateBookedRooms")]
+    partial class UpdateBookedRooms
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

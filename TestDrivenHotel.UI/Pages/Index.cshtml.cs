@@ -9,7 +9,7 @@ namespace TestDrivenHotel.UI.Pages
     {
         private readonly HotelRoomsDB _db;
         private readonly BookingManager _bookingManager;
-        private int? _guestId;
+        
 
         public List<HotelRoom> AllRooms { get; set; } = new();
         [BindProperty]
@@ -32,7 +32,7 @@ namespace TestDrivenHotel.UI.Pages
         public IActionResult OnPostBook(int roomId)
         {
             // Call the BookingManager to handle the booking logic
-            if (_bookingManager.BookRoom(roomId, 0)) // 0 is a placeholder for guestId, you might want to handle this differently
+            if (_bookingManager.BookRoom(roomId, GuestId)) // 0 is a placeholder for guestId, you might want to handle this differently
             {
                 // Booking successful, you can redirect or perform other actions
                 return RedirectToPage("Details");

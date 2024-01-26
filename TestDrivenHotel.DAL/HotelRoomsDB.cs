@@ -20,17 +20,41 @@ namespace TestDrivenHotel.DAL
         // Lista med alla tillgängliga rum
         public DbSet<HotelRoom> HotelRooms { get; set; }
         // Lista med alla bokade rum
-        public Dictionary<(int RoomNumber, int GuestId), HotelRoom> BookedRooms { get; set; }
-        public List<Guests> Guests { get; set; }
-        // Function to get the next available guest ID
+        public DbSet<BookedRoom> BookedRooms { get; set; }
+        // Lista med alla gäster
+        public DbSet<Guests> Guests { get; set; }
+        // Function to get the next available guest ID, test this.
         public int GetNextGuestId()
         {
             return _nextGuestId++;
+        }
+        public class BookedRoom
+        {
+            public int RoomNumber { get; set; }
+            public int GuestId { get; set; }
+
+            // Navigation properties
+            public HotelRoom? Room { get; set; }
+            public Guests? Guest { get; set; }
         }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.Entity<BookedRoom>()
+                .HasKey(br => new { br.RoomNumber, br.GuestId });
+
+            modelBuilder.Entity<BookedRoom>()
+                .HasOne(br => br.Room)
+                .WithMany()
+                .HasForeignKey(br => br.RoomNumber);
+
+            modelBuilder.Entity<BookedRoom>()
+                .HasOne(br => br.Guest)
+                .WithMany()
+                .HasForeignKey(br => br.GuestId);
+
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<HotelRoom>().HasData(new HotelRoom
@@ -113,6 +137,7 @@ namespace TestDrivenHotel.DAL
                 PricePerNight = 10000,
                 IsBooked = false
             });
+
         }
     }
 }

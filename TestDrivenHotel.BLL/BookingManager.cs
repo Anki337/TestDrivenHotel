@@ -1,4 +1,5 @@
 ﻿using TestDrivenHotel.DAL;
+using static TestDrivenHotel.DAL.HotelRoomsDB;
 
 namespace TestDrivenHotel.BLL
 {
@@ -16,18 +17,30 @@ namespace TestDrivenHotel.BLL
         // (Use RoomNumber + GuestId, this should also remove the room from the list of available rooms and set IsBooked to true).
 
         // Function for booking a room
-        public bool BookRoom(int roomNumber, int? guestId)
+        public bool BookRoom(int roomNumber, int guestId)
         {
             // If guestId is null, assign it a default value of 1 and auto-increment for the next time
-            guestId ??= _db.GetNextGuestId();
+            guestId = _db.GetNextGuestId();
 
             // Check if the room is available
             var room = _db.HotelRooms.FirstOrDefault(r => r.RoomNumber == roomNumber && !r.IsBooked);
 
             if (room != null)
             {
-                // Add the room and guest to the dictionary
-                _db.BookedRooms.Add((roomNumber, guestId.Value), room);
+                // Retrieve the corresponding Guest entity
+                var guest = _db.Guests.FirstOrDefault(g => g.GuestId == guestId);
+
+                // Create a new BookedRoom entity
+                var bookedRoom = new BookedRoom
+                {
+                    RoomNumber = roomNumber,
+                    GuestId = guestId,
+                    Room = room,
+                    Guest = guest
+                };
+
+                // Add the bookedRoom entity to the DbSet
+                _db.BookedRooms.Add(bookedRoom);
 
                 // Update the room status
                 room.IsBooked = true;
